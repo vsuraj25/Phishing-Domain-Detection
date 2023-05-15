@@ -5,7 +5,7 @@ matplotlib
 seaborn
 pyYAML
 ensure==1.0.2
-pickle
+joblib
 types-PyYAML
 scikit-learn
 mlflow
