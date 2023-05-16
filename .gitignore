@@ -130,3 +130,6 @@ dmypy.json
 
 # Environments
 phish_predictor_env
+research/catboost_info/learn_error.tsv
+research/catboost_info/time_left.tsv
+research/catboost_info/learn/events.out.tfevents
