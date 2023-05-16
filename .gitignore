@@ -135,4 +135,3 @@ research/catboost_info/time_left.tsv
 research/catboost_info/learn/events.out.tfevents
 artifacts/data_ingestion/local_data/data.arff
 artifacts/data_ingestion/processed_data/data.csv
-/dvc.lock
