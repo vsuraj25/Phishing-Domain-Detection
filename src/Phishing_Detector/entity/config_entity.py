@@ -9,3 +9,8 @@ class DataIngestionConfig:
     processed_data_dir_path : Path
     local_data_file_path : Path
     processed_data_file_path : Path
+
+@dataclass(frozen=True)
+class DataValidationConfig:
+    schema: dict
+    processed_data_file_path: Path
