@@ -1,7 +1,7 @@
 from Phishing_Detector.utils import *
 from Phishing_Detector.constants import *
 from Phishing_Detector import logger
-from Phishing_Detector.entity.config_entity import (DataIngestionConfig)
+from Phishing_Detector.entity.config_entity import (DataIngestionConfig, DataValidationConfig)
 
 class ConfigurationManager:
 
@@ -31,5 +31,14 @@ class ConfigurationManager:
 
         return data_ingestion_config
 
+    def get_data_validation_config(self) -> DataValidationConfig:
 
+        config = self.config.data_validation
+
+        data_validation_config = DataValidationConfig(
+            schema = config.schema,
+            processed_data_file_path= config.processed_data_file_path
+        )
+
+        return data_validation_config
 
