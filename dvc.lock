@@ -1,0 +1,30 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python src/Phishing_Detector/pipeline/stage_1.py
+    deps:
+    - path: configs/config.yaml
+      md5: 7bc41daa74ccd3879075838e5b37b9b5
+      size: 1722
+    - path: src/Phishing_Detector/pipeline/stage_1.py
+      md5: 5405237b9225d519c5b509e134241593
+      size: 515
+    outs:
+    - path: artifacts/data_ingestion/local_data/data.arff
+      md5: 8287e8d6a6aedd1361569c5c9c916e3b
+      size: 800920
+    - path: artifacts/data_ingestion/processed_data/data.csv
+      md5: 06c37813afac8baa8b1d3636f21a636c
+      size: 800203
+  data_validation:
+    cmd: python src/Phishing_Detector/pipeline/stage_2.py
+    deps:
+    - path: artifacts/data_ingestion/processed_data/data.csv
+      md5: 06c37813afac8baa8b1d3636f21a636c
+      size: 800203
+    - path: configs/config.yaml
+      md5: 7bc41daa74ccd3879075838e5b37b9b5
+      size: 1722
+    - path: src/Phishing_Detector/pipeline/stage_2.py
+      md5: 159aed58e715fdfab4f9ab0c10e33e03
+      size: 445
