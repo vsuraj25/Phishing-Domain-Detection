@@ -1,0 +1,9 @@
+stages:
+  data_ingestion:
+    cmd: python src/Phishing_Detector/pipeline/stage_1.py
+    deps: 
+      - src/Phishing_Detector/pipeline/stage_1.py
+      - configs/config.yaml
+    outs:
+      - artifacts/data_ingestion/local_data/data.arff
+      - artifacts/data_ingestion/processed_data/data.csv
