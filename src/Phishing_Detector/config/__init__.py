@@ -1,0 +1,1 @@
+from Phishing_Detector.config.configuration import ConfigurationManager
