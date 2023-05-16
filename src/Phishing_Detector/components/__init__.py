@@ -1,1 +1,2 @@
 from Phishing_Detector.components.data_ingestion import DataIngestion
+from Phishing_Detector.components.data_validation import DataValidation
