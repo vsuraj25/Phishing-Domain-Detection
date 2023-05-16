@@ -2,6 +2,7 @@ import logging
 from datetime import datetime
 import os
 
+## --------------------Logger--------------------------
 
 LOG_DIR = "logs"
 
@@ -20,3 +21,10 @@ logging.basicConfig(filename=LOG_FILE_PATH,
                     )
 
 logger = logging.getLogger('phishing_predictor_logger')
+
+
+## ----------------Data Validation Exception--------------------
+class DataNotValid(Exception):
+    def __init__(self, message = "Data is not valid"):
+        self.message = message
+        super().__init__(self.message)
