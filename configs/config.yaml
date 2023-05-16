@@ -1,0 +1,9 @@
+artifacts_root : artifacts
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  source_url: https://archive.ics.uci.edu/ml/machine-learning-databases/00327/Training%20Dataset.arff
+  local_data_dir_path: artifacts/data_ingestion/local_data
+  processed_data_dir_path : artifacts/data_ingestion/processed_data
+  local_data_file_path: artifacts/data_ingestion/local_data/data.arff
+  processed_data_file_path : artifacts/data_ingestion/processed_data/data.csv
