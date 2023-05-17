@@ -35,3 +35,18 @@ stages:
       - artifacts/data_transformation/train_test_data/x_test.csv
       - artifacts/data_transformation/train_test_data/y_train.csv
       - artifacts/data_transformation/train_test_data/y_test.csv
+
+  model_training:
+    cmd: python src/Phishing_Detector/pipeline/stage_4.py
+    deps: 
+      - src/Phishing_Detector/pipeline/stage_4.py
+      - configs/config.yaml
+      - artifacts/data_transformation/train_test_data/x_train.csv
+      - artifacts/data_transformation/train_test_data/y_train.csv
+    params:
+      - hidden_layer_sizes
+      - max_iter
+      - activation
+      - solver
+    outs:
+      - artifacts/model_training/saved_models/model.joblib

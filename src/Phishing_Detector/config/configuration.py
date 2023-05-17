@@ -82,9 +82,7 @@ class ConfigurationManager:
         model_training_config = ModelTrainingConfig(
             root_dir = config.root_dir,
             x_train_file_path = config.x_train_file_path,
-            x_test_file_path = config.x_test_file_path,
             y_train_file_path = config.y_train_file_path,
-            y_test_file_path = config.y_test_file_path,
             saved_model_dir_path = config.saved_model_dir_path,
             saved_model_file_path = config.saved_model_file_path,
             param_hidden_layer_sizes = params.hidden_layer_sizes,
