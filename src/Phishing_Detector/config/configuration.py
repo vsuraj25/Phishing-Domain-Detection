@@ -1,7 +1,9 @@
 from Phishing_Detector.utils import *
 from Phishing_Detector.constants import *
 from Phishing_Detector import logger
-from Phishing_Detector.entity.config_entity import (DataIngestionConfig, DataValidationConfig, DataTransformationConfig)
+from Phishing_Detector.entity.config_entity import (DataIngestionConfig, DataValidationConfig, DataTransformationConfig,
+                                                    ModelTrainingConfig
+                                                    )
 
 class ConfigurationManager:
 
@@ -70,5 +72,27 @@ class ConfigurationManager:
         )
 
         return data_transformation_config
+    
+    def get_model_training_config(self) -> ModelTrainingConfig:
+        
+        config = self.config.model_training
+        params = self.params
+        create_directories([config.root_dir])
+
+        model_training_config = ModelTrainingConfig(
+            root_dir = config.root_dir,
+            x_train_file_path = config.x_train_file_path,
+            x_test_file_path = config.x_test_file_path,
+            y_train_file_path = config.y_train_file_path,
+            y_test_file_path = config.y_test_file_path,
+            saved_model_dir_path = config.saved_model_dir_path,
+            saved_model_file_path = config.saved_model_file_path,
+            param_hidden_layer_sizes = params.hidden_layer_sizes,
+            param_max_iter = params.max_iter,
+            param_activation = params.activation,
+            param_solver = params.solver
+        )
+
+        return model_training_config
 
 
