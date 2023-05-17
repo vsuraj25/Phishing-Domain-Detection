@@ -4,8 +4,8 @@ stages:
     cmd: python src/Phishing_Detector/pipeline/stage_1.py
     deps:
     - path: configs/config.yaml
-      md5: a639dbf0a32a4a2719066b81926faf4d
-      size: 1921
+      md5: 37af7bdd913c682910d0b340d075e25a
+      size: 2719
     - path: src/Phishing_Detector/pipeline/stage_1.py
       md5: 5405237b9225d519c5b509e134241593
       size: 515
@@ -23,8 +23,8 @@ stages:
       md5: 06c37813afac8baa8b1d3636f21a636c
       size: 800203
     - path: configs/config.yaml
-      md5: a639dbf0a32a4a2719066b81926faf4d
-      size: 1921
+      md5: 37af7bdd913c682910d0b340d075e25a
+      size: 2719
     - path: src/Phishing_Detector/pipeline/stage_2.py
       md5: 159aed58e715fdfab4f9ab0c10e33e03
       size: 445
@@ -32,3 +32,40 @@ stages:
     - path: artifacts/data_validation/validation_report/report.json
       md5: 7d27445d1d210f55e073c3bba9a21376
       size: 167
+  data_transformation:
+    cmd: python src/Phishing_Detector/pipeline/stage_3.py
+    deps:
+    - path: artifacts/data_ingestion/processed_data/data.csv
+      md5: 06c37813afac8baa8b1d3636f21a636c
+      size: 800203
+    - path: artifacts/data_validation/validation_report/report.json
+      md5: 7d27445d1d210f55e073c3bba9a21376
+      size: 167
+    - path: configs/config.yaml
+      md5: 37af7bdd913c682910d0b340d075e25a
+      size: 2719
+    - path: src/Phishing_Detector/pipeline/stage_3.py
+      md5: 59fea3966bff05b5393b9f2a94a0aac3
+      size: 512
+    params:
+      params.yaml:
+        IMPUTER_STRATEGY: most_frequent
+        RANDOM_STATE: 42
+        TARGET: Result
+        TEST_SIZE: 0.25
+    outs:
+    - path: artifacts/data_transformation/train_test_data/x_test.csv
+      md5: 9953cb393fe453f3ae835dbc3dcbc420
+      size: 193581
+    - path: artifacts/data_transformation/train_test_data/x_train.csv
+      md5: 52e2d37c48b79aa910e9593f4260ddde
+      size: 580028
+    - path: artifacts/data_transformation/train_test_data/y_test.csv
+      md5: 3ad0f22e0c1e02bcac744d31f212e100
+      size: 9483
+    - path: artifacts/data_transformation/train_test_data/y_train.csv
+      md5: 3d2ae84a2b052105fbff04bf61133a5f
+      size: 28596
+    - path: artifacts/data_transformation/transformed_data/transformed_data.csv
+      md5: 06c37813afac8baa8b1d3636f21a636c
+      size: 800203
