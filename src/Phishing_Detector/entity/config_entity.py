@@ -17,3 +17,20 @@ class DataValidationConfig:
     processed_data_file_path: Path
     validation_report_dir_path : Path
     validation_report_file_path: Path
+
+@dataclass(frozen=True)
+class DataTransformationConfig:
+    root_dir: Path
+    data_validation_report: Path
+    processed_data_file_path: Path
+    transformed_data_dir_path: Path
+    transformed_data_file_path: Path
+    train_test_data_dir_path: Path
+    x_train_file_path: Path
+    x_test_file_path: Path
+    y_train_file_path: Path
+    y_test_file_path: Path
+    param_imputer_strategy: str
+    param_test_size: float
+    param_random_state: int
+    param_target: str
