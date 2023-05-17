@@ -10,8 +10,10 @@ data_ingestion:
 
 data_validation:
 
+  root_dir : artifacts/data_validation
   processed_data_file_path : artifacts/data_ingestion/processed_data/data.csv
-
+  validation_report_dir_path: artifacts/data_validation/validation_report
+  validation_report_file_path: artifacts/data_validation/validation_report/report.json
   schema: 
     columns: 
       having_IP_Address: int64          
@@ -47,5 +49,4 @@ data_validation:
       Result: int64
 
     no_of_rows: 11055
-
     no_of_cols: 31
