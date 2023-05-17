@@ -1,1 +1,6 @@
-trial : true
+## Data Transformation Params
+
+IMPUTER_STRATEGY: most_frequent
+TEST_SIZE: 0.25
+RANDOM_STATE: 42
+TARGET: Result

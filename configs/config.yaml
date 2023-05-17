@@ -50,3 +50,16 @@ data_validation:
 
     no_of_rows: 11055
     no_of_cols: 31
+
+data_transformation:
+
+  root_dir: artifacts/data_transformation
+  data_validation_report: artifacts/data_validation/validation_report/report.json
+  processed_data_file_path : artifacts/data_ingestion/processed_data/data.csv
+  transformed_data_dir_path: artifacts/data_transformation/transformed_data
+  transformed_data_file_path: artifacts/data_transformation/transformed_data/transformed_data.csv
+  train_test_data_dir_path: artifacts/data_transformation/train_test_data
+  x_train_file_path: artifacts/data_transformation/train_test_data/x_train.csv
+  x_test_file_path: artifacts/data_transformation/train_test_data/x_test.csv
+  y_train_file_path: artifacts/data_transformation/train_test_data/y_train.csv
+  y_test_file_path: artifacts/data_transformation/train_test_data/y_test.csv
