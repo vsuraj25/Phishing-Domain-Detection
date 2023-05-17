@@ -133,5 +133,11 @@ phish_predictor_env
 research/catboost_info/learn_error.tsv
 research/catboost_info/time_left.tsv
 research/catboost_info/learn/events.out.tfevents
-
-artifacts/*
+artifacts/data_ingestion/local_data/data.arff
+artifacts/data_ingestion/processed_data/data.csv
+artifacts/data_validation/validation_report/report.json
+artifacts/data_transformation/transformed_data/transformed_data.csv
+artifacts/data_transformation/train_test_data/x_train.csv
+artifacts/data_transformation/train_test_data/x_test.csv
+artifacts/data_transformation/train_test_data/y_train.csv
+artifacts/data_transformation/train_test_data/y_test.csv
