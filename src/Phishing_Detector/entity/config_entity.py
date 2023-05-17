@@ -12,5 +12,8 @@ class DataIngestionConfig:
 
 @dataclass(frozen=True)
 class DataValidationConfig:
+    root_dir: Path
     schema: dict
     processed_data_file_path: Path
+    validation_report_dir_path : Path
+    validation_report_file_path: Path
