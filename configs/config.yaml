@@ -63,3 +63,13 @@ data_transformation:
   x_test_file_path: artifacts/data_transformation/train_test_data/x_test.csv
   y_train_file_path: artifacts/data_transformation/train_test_data/y_train.csv
   y_test_file_path: artifacts/data_transformation/train_test_data/y_test.csv
+
+model_training:
+  root_dir: model_training
+  x_train_file_path: artifacts/data_transformation/train_test_data/x_train.csv
+  x_test_file_path: artifacts/data_transformation/train_test_data/x_test.csv
+  y_train_file_path: artifacts/data_transformation/train_test_data/y_train.csv
+  y_test_file_path: artifacts/data_transformation/train_test_data/y_test.csv
+  saved_model_dir_path: artifacts/model_training/saved_models
+  saved_model_file_path: artifacts/model_training/saved_models/model.joblib
+

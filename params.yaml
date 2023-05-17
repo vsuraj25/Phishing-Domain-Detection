@@ -1,6 +1,13 @@
-## Data Transformation Params
+## Data Transformation Parameters
 
 IMPUTER_STRATEGY: most_frequent
 TEST_SIZE: 0.25
 RANDOM_STATE: 42
 TARGET: Result
+
+## Model Training Parameters
+
+hidden_layer_sizes: [150,100,50]
+max_iter: 300
+activation: relu
+solver: adam
