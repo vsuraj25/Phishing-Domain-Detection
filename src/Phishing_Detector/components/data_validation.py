@@ -7,7 +7,12 @@ import pandas as pd
 class DataValidation:
     
     def __init__(self, config:DataValidationConfig):
+        logger.info(f"{'>'*10} Starting Data Transformation Stage! {'<'*10}")
+        
+        logger.info(f"Getting Configuration for Data Transformation Stage...")
         self.config = config
+        logger.info(f"Configurations : {config}")
+
         create_directories([self.config.validation_report_dir_path])
         
     def validate_data(self):
