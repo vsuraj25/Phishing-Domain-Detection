@@ -14,3 +14,5 @@ stages:
       - src/Phishing_Detector/pipeline/stage_2.py
       - configs/config.yaml
       - artifacts/data_ingestion/processed_data/data.csv
+    outs:
+      - artifacts/data_validation/validation_report/report.json
