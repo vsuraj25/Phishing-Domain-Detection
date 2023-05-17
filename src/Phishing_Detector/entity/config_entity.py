@@ -34,3 +34,17 @@ class DataTransformationConfig:
     param_test_size: float
     param_random_state: int
     param_target: str
+
+@dataclass(frozen=True)
+class ModelTrainingConfig:
+    root_dir : Path
+    x_train_file_path : Path
+    x_test_file_path : Path
+    y_train_file_path : Path
+    y_test_file_path : Path
+    saved_model_dir_path : Path
+    saved_model_file_path : Path
+    param_hidden_layer_sizes: tuple
+    param_max_iter: int
+    param_activation: str
+    param_solver: str
