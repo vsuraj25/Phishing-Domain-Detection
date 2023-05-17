@@ -16,3 +16,22 @@ stages:
       - artifacts/data_ingestion/processed_data/data.csv
     outs:
       - artifacts/data_validation/validation_report/report.json
+
+  data_transformation:
+    cmd: python src/Phishing_Detector/pipeline/stage_3.py
+    deps: 
+      - src/Phishing_Detector/pipeline/stage_3.py
+      - configs/config.yaml
+      - artifacts/data_ingestion/processed_data/data.csv
+      - artifacts/data_validation/validation_report/report.json
+    params:
+      - IMPUTER_STRATEGY
+      - TEST_SIZE
+      - RANDOM_STATE
+      - TARGET
+    outs:
+      - artifacts/data_transformation/transformed_data/transformed_data.csv
+      - artifacts/data_transformation/train_test_data/x_train.csv
+      - artifacts/data_transformation/train_test_data/x_test.csv
+      - artifacts/data_transformation/train_test_data/y_train.csv
+      - artifacts/data_transformation/train_test_data/y_test.csv
