@@ -4,7 +4,7 @@ from Phishing_Detector.constants import *
 from Phishing_Detector import logger
 import pandas as pd
 from sklearn.neural_network import MLPClassifier
-
+import joblib
 
 
 class ModelTraining:
