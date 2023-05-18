@@ -46,3 +46,13 @@ class ModelTrainingConfig:
     param_max_iter: int
     param_activation: str
     param_solver: str
+
+@dataclass(frozen=True)
+class ModelEvaluationConfig:
+    root_dir : Path
+    x_test_file_path : Path
+    y_test_file_path : Path
+    saved_model_file_path : Path
+    model_metrics_dir_path : Path
+    model_metrics_json_file_path : Path
+    model_metrics_cmat_file_path : Path
