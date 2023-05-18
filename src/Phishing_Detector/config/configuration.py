@@ -2,7 +2,7 @@ from Phishing_Detector.utils import *
 from Phishing_Detector.constants import *
 from Phishing_Detector import logger
 from Phishing_Detector.entity.config_entity import (DataIngestionConfig, DataValidationConfig, DataTransformationConfig,
-                                                    ModelTrainingConfig
+                                                    ModelTrainingConfig, ModelEvaluationConfig
                                                     )
 
 class ConfigurationManager:
@@ -92,5 +92,22 @@ class ConfigurationManager:
         )
 
         return model_training_config
+    
+    def get_model_evaluation_config(self) -> ModelEvaluationConfig:
+        
+        config = self.config.model_evaluation
+        create_directories([config.root_dir])
+
+        model_evaluation_config = ModelEvaluationConfig(
+            root_dir = config.root_dir,
+            x_test_file_path = config.x_test_file_path,
+            y_test_file_path = config.y_test_file_path,
+            saved_model_file_path = config.saved_model_file_path,
+            model_metrics_dir_path = config.model_metrics_dir_path,
+            model_metrics_json_file_path = config.model_metrics_json_file_path,
+            model_metrics_cmat_file_path = config.model_metrics_cmat_file_path
+        )
+
+        return model_evaluation_config
 
 
