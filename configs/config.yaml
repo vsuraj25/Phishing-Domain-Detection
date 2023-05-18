@@ -71,3 +71,11 @@ model_training:
   saved_model_dir_path: artifacts/model_training/saved_models
   saved_model_file_path: artifacts/model_training/saved_models/model.joblib
 
+model_evaluation:
+  root_dir: model_evaluation
+  x_test_file_path: artifacts/data_transformation/train_test_data/x_test.csv
+  y_test_file_path: artifacts/data_transformation/train_test_data/y_test.csv
+  saved_model_file_path: artifacts/model_training/saved_models/model.joblib
+  model_metrics_dir_path: artifacts/model_evaluation/models_results
+  model_metrics_json_file_path: artifacts/model_evaluation/models_results/results.json
+  model_metrics_cmat_file_path: artifacts/model_evaluation/models_results/confusion_matrix.png
