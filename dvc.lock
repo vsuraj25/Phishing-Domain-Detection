@@ -97,3 +97,37 @@ stages:
     - path: artifacts/model_training/saved_models/model.joblib
       md5: 378253537528818ca22cb470a13647fd
       size: 594008
+  model_evaluation:
+    cmd: python src/Phishing_Detector/pipeline/stage_5.py
+    deps:
+    - path: artifacts/data_transformation/train_test_data/x_test.csv
+      md5: e5094c27da2922b1e07637b3d9b265d7
+      size: 175761
+    - path: artifacts/data_transformation/train_test_data/y_test.csv
+      md5: 3ad0f22e0c1e02bcac744d31f212e100
+      size: 9483
+    - path: artifacts/model_training/saved_models/model.joblib
+      md5: 378253537528818ca22cb470a13647fd
+      size: 594008
+    - path: configs/config.yaml
+      md5: 712288e94d8ca140270000ac0c962b15
+      size: 3603
+    - path: src/Phishing_Detector/pipeline/stage_5.py
+      md5: 5b4350ddc99e1bafb380db9c05272cb9
+      size: 471
+    params:
+      params.yaml:
+        activation: relu
+        hidden_layer_sizes:
+        - 150
+        - 100
+        - 50
+        max_iter: 300
+        solver: adam
+    outs:
+    - path: artifacts\model_evaluation\models_results\confusion_matrix.png
+      md5: 57458da4d1681f996ea952f3463a3994
+      size: 18667
+    - path: artifacts\model_evaluation\models_results\results.json
+      md5: 973f866b7d43f2e31341211003f4c5ad
+      size: 114
