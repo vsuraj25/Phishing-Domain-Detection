@@ -3,6 +3,10 @@
 IMPUTER_STRATEGY: most_frequent
 TEST_SIZE: 0.25
 RANDOM_STATE: 42
+COLS_TO_DROP:
+  - web_traffic
+  - Statistical_report
+  - Links_pointing_to_page
 TARGET: Result
 
 ## Model Training Parameters

@@ -68,7 +68,6 @@ class ConfigurationManager:
             param_imputer_strategy = params.IMPUTER_STRATEGY,
             param_test_size = params.TEST_SIZE,
             param_random_state = params.RANDOM_STATE,
-            param_cols_to_drop= params.COLS_TO_DROP,
             param_target = params.TARGET
         )
 
