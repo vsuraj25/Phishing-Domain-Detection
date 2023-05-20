@@ -15,3 +15,6 @@ hidden_layer_sizes: [150,100,50]
 max_iter: 300
 activation: relu
 solver: adam
+
+## Model Evaluation Params
+registered_model_name : MLPClassifier

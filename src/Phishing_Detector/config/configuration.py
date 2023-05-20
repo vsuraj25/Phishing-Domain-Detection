@@ -96,6 +96,7 @@ class ConfigurationManager:
     def get_model_evaluation_config(self) -> ModelEvaluationConfig:
         
         config = self.config.model_evaluation
+        params = self.params
         create_directories([config.root_dir])
 
         model_evaluation_config = ModelEvaluationConfig(
@@ -105,7 +106,12 @@ class ConfigurationManager:
             saved_model_file_path = config.saved_model_file_path,
             model_metrics_dir_path = config.model_metrics_dir_path,
             model_metrics_json_file_path = config.model_metrics_json_file_path,
-            model_metrics_cmat_file_path = config.model_metrics_cmat_file_path
+            model_metrics_cmat_file_path = config.model_metrics_cmat_file_path,
+            param_hidden_layer_sizes = params.hidden_layer_sizes,
+            param_max_iter = params.max_iter,
+            param_activation = params.activation,
+            param_solver = params.solver,
+            param_reg_model_name = params.registered_model_name
         )
 
         return model_evaluation_config

@@ -1,6 +1,9 @@
 from pathlib import Path
 from Phishing_Detector.utils import *
+from Phishing_Detector.sec import *
+from urllib.parse import urlparse
 import pandas as pd
+import mlflow
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, ConfusionMatrixDisplay
 import matplotlib.pyplot as plt
 from Phishing_Detector.entity.config_entity import ModelEvaluationConfig
@@ -15,11 +18,15 @@ class ModelEvaluation:
         self.config = config
         logger.info(f"Configurations : {config}")
 
+        os.environ["MLFLOW_TRACKING_URI"] = MLFLOW_TRACKING_URI
+        os.environ["MLFLOW_TRACKING_USERNAME"] = MLFLOW_TRACKING_USERNAME
+        os.environ["MLFLOW_TRACKING_PASSWORD"] = MLFLOW_TRACKING_PASSWORD
+
         logger.info(f"Creating required directories...")
         create_directories([self.config.model_metrics_dir_path])
 
 
-    def evaluate_metrics(self):
+    def eval_metrics_and_log_into_mlflow(self):
         logger.info(f"Loading training data...")
         x_test, y_test  = self._load_test_data()
         logger.info(f"Testing data loaded successfully...")
@@ -31,11 +38,35 @@ class ModelEvaluation:
         logger.info(f"Prediction on test data...")
         y_prob = model.predict(x_test)
 
-        self._eval_and_save_metrics(actual = y_test,
+        metrics = self._eval_and_save_metrics(actual = y_test,
                                     predicted = y_prob,
                                     save_metrics_path = Path(self.config.model_metrics_json_file_path),
                                     save_cmat_path = Path(self.config.model_metrics_cmat_file_path))
+        
+        logger.info(f"MLFlow tracking started...")
+        mlflow.set_registry_uri(MLFLOW_TRACKING_URI)
+        tracking_uri_type_store = urlparse(mlflow.get_tracking_uri()).scheme
+        with mlflow.start_run():
+            logger.info(f"Logging all parameters in mlflow...")
+            mlflow.log_param('hidden_layer_sizes',self.config.param_hidden_layer_sizes)
+            mlflow.log_param('max_iter',self.config.param_max_iter)
+            mlflow.log_param('activation',self.config.param_activation)
+            mlflow.log_param('solver',self.config.param_solver)
+            logger.info(f"Logging all metrics in mlflow...")
+            mlflow.log_metrics({
+                "accuracy_score" : metrics[0],
+                "recall_score" : metrics[1],
+                "precision_score" : metrics[2],
+                "f1_score" : metrics[3],
+            })
+            if tracking_uri_type_store != "file":
+                mlflow.sklearn.log_model(model, "model", registered_model_name = self.config.param_reg_model_name)
+            else:
+                mlflow.sklearn.log_model(model, "model")
 
+            logger.info(f"MLFlow tracking complete, you can visualize your model results using the command `mlflow ui` or globally at https://dagshub.com/vsuraj25/DeepCNN_Classifier_End_To_End.mlflow")
+        
+    
     def _load_test_data(self):
         x_test = pd.read_csv(Path(self.config.x_test_file_path))
         y_test = pd.read_csv(Path(self.config.y_test_file_path))
@@ -73,3 +104,4 @@ class ModelEvaluation:
         cm_display.plot()
         plt.savefig(Path(save_cmat_path))
         logger.info(f"Confusion Matrix Report saved at {save_cmat_path}")
+        return [acc_score, rec_score, prec_score, f1]
