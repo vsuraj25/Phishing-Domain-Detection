@@ -33,6 +33,7 @@ class DataTransformationConfig:
     param_imputer_strategy: str
     param_test_size: float
     param_random_state: int
+    param_cols_to_drop: list
     param_target: str
 
 @dataclass(frozen=True)
