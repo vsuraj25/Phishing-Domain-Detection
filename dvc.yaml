@@ -50,3 +50,21 @@ stages:
       - solver
     outs:
       - artifacts/model_training/saved_models/model.joblib
+
+  model_evaluation:
+    cmd: python src/Phishing_Detector/pipeline/stage_5.py
+    deps: 
+      - src/Phishing_Detector/pipeline/stage_5.py
+      - configs/config.yaml
+      - artifacts/data_transformation/train_test_data/x_test.csv
+      - artifacts/data_transformation/train_test_data/y_test.csv
+      - artifacts/model_training/saved_models/model.joblib
+    params:
+      - hidden_layer_sizes
+      - max_iter
+      - activation
+      - solver
+    outs:
+      - artifacts\model_evaluation\models_results\confusion_matrix.png
+      - artifacts\model_evaluation\models_results\results.json
+
