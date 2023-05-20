@@ -14,17 +14,18 @@ os.makedirs(LOG_DIR, exist_ok=True)
 
 LOG_FILE_PATH = os.path.join(LOG_DIR, LOG_FILE_NAME)
 
-logging.basicConfig(filename=LOG_FILE_PATH,
-                    filemode='w',
-                    format='[%(asctime)s] %(name)s - %(levelname)s %(message)s',
-                    level=logging.INFO
-                    )
+logging.basicConfig(
+    filename=LOG_FILE_PATH,
+    filemode="w",
+    format="[%(asctime)s] %(name)s - %(levelname)s %(message)s",
+    level=logging.INFO,
+)
 
-logger = logging.getLogger('phishing_predictor_logger')
+logger = logging.getLogger("phishing_predictor_logger")
 
 
 ## ----------------Data Validation Exception--------------------
 class DataNotValid(Exception):
-    def __init__(self, message = "Data is not valid"):
+    def __init__(self, message="Data is not valid"):
         self.message = message
         super().__init__(self.message)
