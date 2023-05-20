@@ -10,6 +10,8 @@ types-PyYAML
 scikit-learn
 mlflow
 flask
+urllib3
+requests
 python-box==6.0.2
 
 -e .
