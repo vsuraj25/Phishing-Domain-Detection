@@ -144,3 +144,14 @@ artifacts/data_transformation/train_test_data/y_test.csv
 artifacts/model_training/saved_models/model.joblib
 artifacts/model_evaluation/models_results/confusion_matrix.png
 artifacts/model_evaluation/models_results/results.json
+research/whois.exe
+research/catboost_info/learn_error.tsv
+research/catboost_info/time_left.tsv
+research/catboost_info/learn/events.out.tfevents
+research/catboost_info/learn_error.tsv
+research/catboost_info/time_left.tsv
+research/catboost_info/learn/events.out.tfevents
+research/catboost_info/catboost_training.json
+research/catboost_info/learn_error.tsv
+research/catboost_info/time_left.tsv
+research/catboost_info/learn/events.out.tfevents
