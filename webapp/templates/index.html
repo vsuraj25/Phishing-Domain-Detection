@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../static/scripts/style.css" rel="stylesheet" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="navbar">
+    <a href="#" class="brand">PHISHINATOR</a>
+    <div>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Code</a></li>
+        <li><a href="#">Developer Info</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>Phishinator, a phishing URL detection tool.</h1>
+    <p class="section2">
+      Stay safe online with Phishinator - your go-to phishing website detector.
+      Quickly verify URLs and shield yourself from malicious websites.
+      Protect your personal information effortlessly. Experience security made simple.
+    </p>
+    <div class="img">
+      <img src="../static/images/mi.webp" alt="gif" />
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="input">
+      <form method="POST" action="/">
+        <input class="form-control" type="text" placeholder="Enter website address or URL" name="url" />
+        <div class="form-group">
+          <button type="submit">SCAN</button>
+        </div>
+        <br>
+        <label readonly class="form-control" id="exTextarea">{{ response }}</label>
+      </form>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <h1>How a phishing website looks like ?</h1>
+    <div class="img">
+      <img src="../static/images/phshing1.webp" alt="gif" />
+    </div>
+    <p class="section1 ">
+      "In 2020, 85% of organisation had at least one employee attempt to connect to a phishing website" - <b>CISCO</b>
+    </p>
+  </div>
+
+  <hr>
+
+  <div class="container-fluid">
+    <h1>What measures you can take to prevent phishing websites ?</h1>
+    <p class="section2">
+      Detecting phishing domains is a tough task in today's digital landscape.
+      Cybercriminals constantly evolve their tactics, creating deceptive websites that mimic trusted platforms.
+      The sheer number of phishing domains, combined with their sophisticated techniques, makes detection challenging.
+      To combat this, advanced algorithms, machine learning, and user awareness are crucial.
+      Here are some measures you can for not being phished!
+    </p>
+    <div class="img">
+      <img src="../static/images/prevent-phishing.png" alt="Prevent Phishing" />
+    </div>
+  </div>
+
+  <hr />
+
+  <footer>
+    <h4>Suraj Verma 2023</h4>
+  </footer>
+</body>
+
+</html>

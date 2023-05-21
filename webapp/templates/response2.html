@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../static/scripts/response.css" rel="stylesheet" />
+  <title>Document</title>
+</head>
+<body>
+  <div class="navbar">
+    <a href="#" class="brand">PHISHINATOR</a>
+    <div>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Code</a></li>
+        <li><a href="#">Developer Info</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>{{result_message}}.</h1>
+    <p class="section2">
+      Stay safe online with Phishinator - your go-to phishing website detector.
+      Quickly verify URLs and shield yourself from malicious websites.
+      Protect your personal information effortlessly. Experience security made simple.
+    </p>
+    <div class="container-img">
+      <img src="{{gif_link}}" alt="gif" />
+    </div>
+   </div> 
+    <div class="container-fluid">
+      <div class="side-container left-container">
+        <h2>Results</h2>
+        <p class="sample-paragraph">{{general_analysis_report}}</p>
+      </div>
+      <div class="side-container right-container">
+        <h2>Probability</h2>
+        <p class="sample-paragraph">{{phish_prob}}</p>
+        <p class="sample-paragraph">{{legal_prob}}</p>
+      </div>
+    </div>
+
+  <footer>
+    <h4>Suraj Verma 2023</h4>
+  </footer>
+</body>
+</html>
