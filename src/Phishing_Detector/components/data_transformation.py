@@ -34,7 +34,8 @@ class DataTransformation:
             if self.get_validation_status():
                 logger.info(f"Reading the validated data...")
                 data = pd.read_csv(self.config.processed_data_file_path)
-
+                ## Removing columns
+                data = data.drop(columns=self.config.param_cols_drop, axis = 1)
                 logger.info(
                     f"Filling null values using SimpleImputer(strategy = {self.config.param_imputer_strategy})..."
                 )

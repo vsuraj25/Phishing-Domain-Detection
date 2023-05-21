@@ -7,6 +7,14 @@ COLS_TO_DROP:
   - web_traffic
   - Statistical_report
   - Links_pointing_to_page
+  - RightClick
+  - port
+  - double_slash_redirecting
+  - Iframe
+  - popUpWidnow
+  - on_mouseover
+  - Submitting_to_email
+  - Abnormal_URL
 TARGET: Result
 
 ## Model Training Parameters

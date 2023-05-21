@@ -66,6 +66,7 @@ class ConfigurationManager:
             param_test_size=params.TEST_SIZE,
             param_random_state=params.RANDOM_STATE,
             param_target=params.TARGET,
+            param_cols_drop= params.COLS_TO_DROP
         )
 
         return data_transformation_config

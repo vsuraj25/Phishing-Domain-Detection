@@ -37,6 +37,7 @@ class DataTransformationConfig:
     param_test_size: float
     param_random_state: int
     param_target: str
+    param_cols_drop : str
 
 
 @dataclass(frozen=True)
