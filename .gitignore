@@ -157,3 +157,4 @@ research/catboost_info/time_left.tsv
 research/catboost_info/learn/events.out.tfevents
 src/Phishing_Detector/sec.py
 src/Phishing_Detector/entity/config_entity.py
+.vscode/settings.json
