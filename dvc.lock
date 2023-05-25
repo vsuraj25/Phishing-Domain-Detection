@@ -95,8 +95,8 @@ stages:
         solver: adam
     outs:
     - path: artifacts/model_training/saved_models/model.joblib
-      md5: 4b5cb31fada055063bb5e964546d1418
-      size: 604952
+      md5: 35ff85382d0ea80c082171714c97c1a7
+      size: 605688
   model_evaluation:
     cmd: python src/Phishing_Detector/pipeline/stage_5.py
     deps:
@@ -107,8 +107,8 @@ stages:
       md5: 3ad0f22e0c1e02bcac744d31f212e100
       size: 9483
     - path: artifacts/model_training/saved_models/model.joblib
-      md5: 4b5cb31fada055063bb5e964546d1418
-      size: 604952
+      md5: 35ff85382d0ea80c082171714c97c1a7
+      size: 605688
     - path: configs/config.yaml
       md5: 712288e94d8ca140270000ac0c962b15
       size: 3603
