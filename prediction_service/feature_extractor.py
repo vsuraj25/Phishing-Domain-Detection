@@ -26,6 +26,12 @@ class FeatureExtractor:
 
     def general_url_analysis(self):
 
+        report = {
+            'domain_status' :  None,
+            'tld_limit_status' : None,
+            'common_tld_status' : None
+        }
+
         parsed_url = urlparse(self.url)
         
         if not parsed_url.scheme:

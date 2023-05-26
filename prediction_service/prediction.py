@@ -6,6 +6,9 @@ phish_url_msg = 'This URL is most likely phishing! It matches the qualities of a
 susp_url_msg = "This URL seems to be suspicious! Explore more about the URL before commiting anything!"
 leg_url_msg = 'This URL is Legal. You can visit the URL freely!'
 img_link = '../static/images/phshing1.webp'
+verified_url = "../static/images/verified.webp"
+suspicious_url = "../static/images/suspicious_url.webp"
+phish_url = "../static/images/mi.webp"
 
 model_path = 'artifacts/model_training/saved_models/model.joblib'
 model = joblib.load(model_path)
@@ -14,6 +17,7 @@ model = joblib.load(model_path)
 def get_response(url):
     result = {
         'message' : None,
+        'desc_message': None,
         'general_analysis_report' : None,
         'gif_link': None,
         'phis_prob' : None,
@@ -21,28 +25,37 @@ def get_response(url):
     }
 
     features = FeatureExtractor(url).get_feature_list()
-    phish_prob = model.predict_proba(features)[0,0]
-    legal_prob = model.predict_proba(features)[0,1]
+    phish_prob = model.predict_proba(features)[0,0] * 100
+    legal_prob = model.predict_proba(features)[0,1] * 100
 
     general_analysis =  FeatureExtractor(url).general_url_analysis()
     for val in general_analysis.values():
         if val != 0:
             result['message'] = invalid_url_msg
-            result['general_analysis_report'] = general_analysis
+            result['desc_message'] = "Please provide a valid url!"
+            result['general_analysis_report'] = general_analysis.values()
             result['gif_link'] = img_link
             result['phis_prob'] = 'Invalid URL'
             result['legal_prob'] = 'Invalid URL'
             return result
+        else:
+            general_analysis = "Gereral Checks Passed Successfully!"
+            
 
-    if phish_prob < 0.6 :
+    if phish_prob < 60 :
         result['message'] = leg_url_msg
-    elif phish_prob > 0.6 and phish_prob < 0.8 :
+        result['gif_link'] = verified_url
+        result['desc_message'] = f"The provided url passes all the validity checks with the legality percentage - {legal_prob}%"
+    elif phish_prob > 60 and phish_prob < 80 :
         result['message'] = susp_url_msg
+        result['gif_link'] = suspicious_url
+        result['desc_message'] = f"The legality percentage of the provided url is {legal_prob}% making it suspicious! Please research more before commiting anything!"
     else:
         result['message'] = phish_url_msg
+        result['gif_link'] = phish_url
+        result['desc_message'] = f"According to our phishing detection system, this url fails all the validity checks! Please do not provide any valuable information or install any application at this website! "
 
     result['general_analysis_report'] = general_analysis
-    result['gif_link'] = img_link
     result['phis_prob'] = phish_prob
     result['legal_prob'] = legal_prob
     return result
