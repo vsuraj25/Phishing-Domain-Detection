@@ -29,7 +29,8 @@ class FeatureExtractor:
         report = {
             'domain_status' :  None,
             'tld_limit_status' : None,
-            'common_tld_status' : None
+            'common_tld_status' : None,
+            'response_status' : None
         }
 
         parsed_url = urlparse(self.url)
@@ -86,10 +87,21 @@ class FeatureExtractor:
                         return 'Uncommon TLD'
             return 0
 
+        def get_response_status(url):
+            try:    
+                response = requests.get(url, timeout= 5).status_code
+                if response == 200:
+                    return 0
+                else: 
+                    return f"Irresponsive URL!"
+            except:
+                return f"Irresponsive URL!"
+
         report = {
             'domain_status' :  get_domain(url),
             'tld_limit_status' : check_tld_limit(url),
-            'common_tld_status' : check_tld_common(url)
+            'common_tld_status' : check_tld_common(url),
+            'response_status' : get_response_status(url)
         }
 
         # for res in report.values():
@@ -176,7 +188,7 @@ class FeatureExtractor:
         if not parsed_url.scheme:
             url = "https://" + url
             
-        response = requests.get(url, timeout= 4)
+        response = requests.get(url, timeout= 3)
         return response
     
     def _extract_hostname(self, url):
