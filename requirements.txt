@@ -8,10 +8,13 @@ ensure==1.0.2
 joblib
 types-PyYAML
 scikit-learn
+gunicorn
 mlflow
 flask
 urllib3
 requests
+beautifulsoup4
+tld
 python-box==6.0.2
 
 -e .
