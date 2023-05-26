@@ -230,19 +230,42 @@ hr {
 
 @media (max-width: 768px) {
   /* Styles for devices with maximum width of 768px */
-  .container,
-  .container-fluid {
-    max-width: 90%;
-    margin: 0 auto;
-    padding: 20px;
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  img {
-    height: auto;
-    margin-bottom: 20px;
+  .navbar .brand,
+  .navbar ul {
+    margin-bottom: 10px;
   }
 
-  input[type="text"] {
-    width: 100%;
+  .navbar .brand {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar .brand-name {
+    margin-left: 10px;
+  }
+
+  .navbar ul {
+    display: none;
+  }
+
+  .navbar .dropdown {
+    display: block;
+  }
+
+  .navbar .dropdown-content {
+    position: static;
+    display: block;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .navbar .dropdown-content a {
+    display: block;
+    margin-top: 5px;
   }
 }
