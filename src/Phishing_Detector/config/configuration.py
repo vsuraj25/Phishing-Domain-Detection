@@ -82,10 +82,10 @@ class ConfigurationManager:
             y_train_file_path=config.y_train_file_path,
             saved_model_dir_path=config.saved_model_dir_path,
             saved_model_file_path=config.saved_model_file_path,
-            param_hidden_layer_sizes=params.hidden_layer_sizes,
-            param_max_iter=params.max_iter,
-            param_activation=params.activation,
-            param_solver=params.solver,
+            param_max_depth = params.max_depth,
+            param_min_samples_leaf = params.min_samples_leaf,
+            param_min_samples_split = params.min_samples_split,
+            param_n_estimators = params.n_estimators
         )
 
         return model_training_config
@@ -103,10 +103,10 @@ class ConfigurationManager:
             model_metrics_dir_path=config.model_metrics_dir_path,
             model_metrics_json_file_path=config.model_metrics_json_file_path,
             model_metrics_cmat_file_path=config.model_metrics_cmat_file_path,
-            param_hidden_layer_sizes=params.hidden_layer_sizes,
-            param_max_iter=params.max_iter,
-            param_activation=params.activation,
-            param_solver=params.solver,
+            param_max_depth = params.max_depth,
+            param_min_samples_leaf = params.min_samples_leaf,
+            param_min_samples_split = params.min_samples_split,
+            param_n_estimators = params.n_estimators,
             param_reg_model_name=params.registered_model_name,
         )
 

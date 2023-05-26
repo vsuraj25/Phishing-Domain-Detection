@@ -3,7 +3,7 @@ from Phishing_Detector.utils import *
 from Phishing_Detector.constants import *
 from Phishing_Detector import logger
 import pandas as pd
-from sklearn.neural_network import MLPClassifier
+from sklearn.ensemble import RandomForestClassifier
 import joblib
 
 
@@ -29,19 +29,19 @@ class ModelTraining:
         x_train, y_train = self.load_train_data()
         logger.info(f"Training data loaded successfully...")
 
-        logger.info(f"Initializing the MLPClassifier model...")
-        mlp_clf = MLPClassifier(
-            hidden_layer_sizes=self.config.param_hidden_layer_sizes,
-            max_iter=self.config.param_max_iter,
-            activation=self.config.param_activation,
-            solver=self.config.param_solver,
+        logger.info(f"Initializing the RandomForestClassifier model...")
+        rfc = RandomForestClassifier(
+            max_depth = None,
+            min_samples_leaf =self.config.param_min_samples_leaf,
+            min_samples_split =self.config.param_min_samples_split,
+            n_estimators =self.config.param_n_estimators,
         )
         logger.info(f"Fitting the training data in the model...")
-        mlp_clf.fit(x_train, y_train)
+        rfc.fit(x_train, y_train)
         logger.info(f"Model Training Complete...")
 
         logger.info(f"Saving the model at {self.config.saved_model_file_path}...")
-        self.save_model(mlp_clf)
+        self.save_model(rfc)
         logger.info(f"Model saved at {self.config.saved_model_file_path}...")
 
         logger.info(f"{'>'*10} Model Training Stage Completed! {'<'*10}")

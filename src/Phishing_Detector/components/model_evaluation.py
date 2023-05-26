@@ -55,10 +55,10 @@ class ModelEvaluation:
         tracking_uri_type_store = urlparse(mlflow.get_tracking_uri()).scheme
         with mlflow.start_run():
             logger.info(f"Logging all parameters in mlflow...")
-            mlflow.log_param("hidden_layer_sizes", self.config.param_hidden_layer_sizes)
-            mlflow.log_param("max_iter", self.config.param_max_iter)
-            mlflow.log_param("activation", self.config.param_activation)
-            mlflow.log_param("solver", self.config.param_solver)
+            mlflow.log_param("max_depth", self.config.param_max_depth)
+            mlflow.log_param("min_samples_leaf", self.config.param_min_samples_leaf)
+            mlflow.log_param("min_samples_split", self.config.param_min_samples_split)
+            mlflow.log_param("n_estimators", self.config.param_n_estimators)
             logger.info(f"Logging all metrics in mlflow...")
             mlflow.log_metrics(
                 {
