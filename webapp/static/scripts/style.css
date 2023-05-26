@@ -269,3 +269,28 @@ hr {
     margin-top: 5px;
   }
 }
+
+/* Additional styles for better mobile experience */
+@media (max-width: 480px) {
+  /* Styles for devices with maximum width of 480px */
+  .navbar {
+    padding: 10px;
+  }
+
+  .navbar .brand {
+    margin-bottom: 10px;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar li {
+    margin-bottom: 5px;
+  }
+
+  .navbar a {
+    padding: 5px;
+  }
+}
