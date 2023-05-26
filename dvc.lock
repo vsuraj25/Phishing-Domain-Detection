@@ -92,8 +92,8 @@ stages:
         n_estimators: 100
     outs:
     - path: artifacts/model_training/saved_models/model.joblib
-      md5: 7d9b45634c1ba06b3f3ec04d5b43edd8
-      size: 61209
+      md5: 78f70c772749fae6d10bbe5d3a9fd6d5
+      size: 8875001
   model_evaluation:
     cmd: python src/Phishing_Detector/pipeline/stage_5.py
     deps:
@@ -104,8 +104,8 @@ stages:
       md5: 3ad0f22e0c1e02bcac744d31f212e100
       size: 9483
     - path: artifacts/model_training/saved_models/model.joblib
-      md5: 7d9b45634c1ba06b3f3ec04d5b43edd8
-      size: 61209
+      md5: 78f70c772749fae6d10bbe5d3a9fd6d5
+      size: 8875001
     - path: configs/config.yaml
       md5: 712288e94d8ca140270000ac0c962b15
       size: 3603
@@ -120,8 +120,8 @@ stages:
         n_estimators: 100
     outs:
     - path: artifacts\model_evaluation\models_results\confusion_matrix.png
-      md5: dc5b5ed89b1acfa8bc0311f63c284a5b
-      size: 18471
+      md5: 83a2e568b79120762d1781bf1df39e10
+      size: 18458
     - path: artifacts\model_evaluation\models_results\results.json
-      md5: e90f00d5ae404a3ec70c2e2f285f0b74
-      size: 115
+      md5: 3492f7c106d6d03149b975166e2a9ffe
+      size: 114
