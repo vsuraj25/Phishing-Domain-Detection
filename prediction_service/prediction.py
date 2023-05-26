@@ -25,8 +25,8 @@ def get_response(url):
     }
 
     features = FeatureExtractor(url).get_feature_list()
-    phish_prob = model.predict_proba(features)[0,0] * 100
-    legal_prob = model.predict_proba(features)[0,1] * 100
+    phish_prob = round(model.predict_proba(features)[0,0] * 100, 2)
+    legal_prob = round(model.predict_proba(features)[0,1] * 100, 2)
 
     general_analysis =  FeatureExtractor(url).general_url_analysis()
     for val in general_analysis.values():
