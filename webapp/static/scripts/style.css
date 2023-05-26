@@ -22,8 +22,12 @@ body {
 
 .navbar {
   background-color: #000;
-  padding: 10px 40px;
-  margin-bottom: 20px;
+  padding-right: 40px;
+  padding-left: 40px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .navbar a {
@@ -172,4 +176,54 @@ hr {
 .error-message {
   color: red;
   font-weight: bold;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 10px 10px;
+  text-decoration: none;
+  display: block;
+  font-size: medium;
+}
+
+.dropdown-content a:hover {
+  background-color: #e3ff42;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  width: 40px; /* Adjust the width as per your image dimensions */
+  height: 40px; /* Adjust the height as per your image dimensions */
+  margin: 20px 20px 20px;
+}
+
+.brand-name {
+  text-decoration: none;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
 }
