@@ -16,6 +16,7 @@ def index():
         result = get_response(url)
         return render_template('response2.html', result_message = result['message'],
                                gif_link = result['gif_link'],
+                               desc_message = result['desc_message'],
                                general_analysis_report = result['general_analysis_report'],
                                phish_prob = result['phis_prob'],
                                legal_prob = result['legal_prob'])
