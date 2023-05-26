@@ -1,6 +1,5 @@
 from pathlib import Path
 from Phishing_Detector.utils import *
-from Phishing_Detector.sec import *
 from urllib.parse import urlparse
 import pandas as pd
 import mlflow
@@ -24,9 +23,9 @@ class ModelEvaluation:
         self.config = config
         logger.info(f"Configurations : {config}")
 
-        os.environ["MLFLOW_TRACKING_URI"] = MLFLOW_TRACKING_URI
-        os.environ["MLFLOW_TRACKING_USERNAME"] = MLFLOW_TRACKING_USERNAME
-        os.environ["MLFLOW_TRACKING_PASSWORD"] = MLFLOW_TRACKING_PASSWORD
+        MLFLOW_TRACKING_URI = os.getenv("MLFLOW_TRACKING_URI")
+        MLFLOW_TRACKING_USERNAME = os.getenv("MLFLOW_TRACKING_USERNAME")
+        MLFLOW_TRACKING_PASSWORD = os.getenv("MLFLOW_TRACKING_PASSWORD")
 
         logger.info(f"Creating required directories...")
         create_directories([self.config.model_metrics_dir_path])

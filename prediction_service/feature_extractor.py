@@ -1,4 +1,4 @@
-from src.Phishing_Detector.sec import *
+import os
 from urllib.parse import urlparse
 import re
 from bs4 import BeautifulSoup
@@ -15,11 +15,11 @@ class FeatureExtractor:
     
     def __init__(self, url):
         self.url = url
-        self.gsb_api =  GSB_API
-        self.vt_api = VT_API
-        self.us_api = US_API
-        self.whois_api = WHOIS_API
-        self.opr_api = OPR_API
+        self.gsb_api =  os.getenv("GSB_API")
+        self.vt_api = os.getenv("VT_API")
+        self.us_api = os.getenv("US_API")
+        self.whois_api = os.getenv("WHOIS_API")
+        self.opr_api = os.getenv("OPR_API")
         self.tld_list_path = 'prediction_service/files/tlds.txt'
         trial_domain = self._get_domain()
         print(trial_domain)
