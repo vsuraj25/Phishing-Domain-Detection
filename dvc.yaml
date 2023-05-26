@@ -44,10 +44,10 @@ stages:
       - artifacts/data_transformation/train_test_data/x_train.csv
       - artifacts/data_transformation/train_test_data/y_train.csv
     params:
-      - hidden_layer_sizes
-      - max_iter
-      - activation
-      - solver
+      - max_depth
+      - min_samples_leaf
+      - min_samples_split
+      - n_estimators
     outs:
       - artifacts/model_training/saved_models/model.joblib
 
@@ -60,10 +60,10 @@ stages:
       - artifacts/data_transformation/train_test_data/y_test.csv
       - artifacts/model_training/saved_models/model.joblib
     params:
-      - hidden_layer_sizes
-      - max_iter
-      - activation
-      - solver
+      - max_depth
+      - min_samples_leaf
+      - min_samples_split
+      - n_estimators
     outs:
       - artifacts\model_evaluation\models_results\confusion_matrix.png
       - artifacts\model_evaluation\models_results\results.json

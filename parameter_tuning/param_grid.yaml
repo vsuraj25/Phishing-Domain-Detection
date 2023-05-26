@@ -1,0 +1,5 @@
+RandomForestClassifier: 
+    min_samples_leaf : [1, 2, 4, 6, 8]
+    max_depth : [2, 4, 6, 8, 9]
+    n_estimators: [10, 50, 100, 150, 200]
+    min_samples_split: [1, 2, 4, 6, 8]

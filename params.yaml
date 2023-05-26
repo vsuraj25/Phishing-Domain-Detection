@@ -19,10 +19,10 @@ TARGET: Result
 
 ## Model Training Parameters
 
-hidden_layer_sizes: [150,100,50]
-max_iter: 300
-activation: relu
-solver: adam
+max_depth: 1
+min_samples_leaf: 1
+min_samples_split: 2
+n_estimators: 100
 
 ## Model Evaluation Params
-registered_model_name : MLPClassifier
+registered_model_name : RandomForestClassifier
