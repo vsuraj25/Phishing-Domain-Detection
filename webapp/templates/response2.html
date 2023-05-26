@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,6 +8,7 @@
   <link href="../static/scripts/response.css" rel="stylesheet" />
   <title>Document</title>
 </head>
+
 <body>
   <div class="navbar">
     <a href="#" class="brand">PHISHINATOR</a>
@@ -21,27 +23,40 @@
 
   <div class="container">
     <h1>{{result_message}}.</h1>
+    <hr>
     <p class="section2">
-      <h3>{{desc_message}}</h3>
+    <h3>{{desc_message}}</h3>
     </p>
     <div class="container-img">
       <img src="{{gif_link}}" alt="gif" />
     </div>
-   </div> 
-    <div class="container-fluid">
-      <div class="side-container left-container">
+  </div>
+  <hr>
+  <div class="container-fluid">
+    <div class="side-container left-container">
+      <center>
         <h2>Status</h2>
-        <p class="sample-paragraph">{{general_analysis_report}}</p>
-      </div>
-      <div class="side-container right-container">
-        <h2>Detector Results</h2>
-        <p class="sample-paragraph">Phishing Probability - {{phish_prob}}</p>
-        <p class="sample-paragraph">Legal Probability - {{legal_prob}}</p>
-      </div>
+      </center>
+      <hr>
+      <center>
+        <p class="sample-paragraph"><h3>{{general_analysis_report}}</h3></p>
+      </center>
     </div>
+    <div class="side-container right-container">
+      <center>
+        <h2>Detector Results</h2>
+      </center>
+      <hr>
+      <center>
+        <p class="sample-paragraph"><h3>Phishing Probability - {{phish_prob}}</h3></p>
+        <p class="sample-paragraph"><h3>Legal Probability - {{legal_prob}}</h3></p>
+      </center>
+    </div>
+  </div>
 
   <footer>
     <h4>Suraj Verma 2023</h4>
   </footer>
 </body>
+
 </html>

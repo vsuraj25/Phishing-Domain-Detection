@@ -7,6 +7,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="../static/scripts/style.css" rel="stylesheet" />
   <title>Document</title>
+  <script>
+    function validateURL() {
+      var input = document.getElementById("urlInput").value;
+      var urlPattern = /^(?:(?:https?|ftp):\/\/)?(?:[\w-]+\.)+[a-z]{2,6}(?:\/[\w-.\/?%&=]*)?$/i;
+      var validationMessage = document.getElementById("validationMessage");
+
+      if (!urlPattern.test(input)) {
+        validationMessage.innerText = "Please enter a valid URL!.";
+        return false;
+      }
+      validationMessage.innerText = "Scanning the url thoroughly...";
+      return true;
+    }
+  </script>
 </head>
 
 <body>
@@ -35,13 +49,14 @@
 
   <div class="container">
     <div class="input">
-      <form method="POST" action="/">
-        <input class="form-control" type="text" placeholder="Enter website address or URL" name="url" />
+      <form method="POST" action="/" onsubmit="return validateURL()">
+        <input class="form-control" type="text" placeholder="Enter website address or URL" name="url" id = "urlInput" />
         <div class="form-group">
           <button type="submit">SCAN</button>
         </div>
         <br>
-        <label readonly class="form-control" id="exTextarea">{{ response }}</label>
+        <br>
+        <span id="validationMessage" class="error-message"></span>
       </form>
     </div>
   </div>
