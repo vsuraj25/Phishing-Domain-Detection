@@ -1,15 +1,17 @@
 import os
-from urllib.parse import urlparse
 import re
-from bs4 import BeautifulSoup
 import socket
 import requests
+import ssl
 import numpy as np
+from urllib.parse import urlparse
+from bs4 import BeautifulSoup
 from datetime import datetime
 from urllib.parse import urlparse
-import ssl
 from urllib.parse import urljoin
 from tld import get_tld
+from dotenv import load_dotenv
+load_dotenv()
 
 class FeatureExtractor:
     
@@ -88,14 +90,23 @@ class FeatureExtractor:
             return 0
 
         def get_response_status(url):
-            try:    
-                response = requests.get(url, timeout= 10).status_code
+            try:
+                parsed_url = urlparse(self.url)
+        
+                if not parsed_url.scheme:
+                    url = "https://" + self.url
+                else: 
+                    url = self.url
+                response = requests.get(url, timeout=10).status_code
+                print(response)
                 if response == 200:
                     return 0
+                elif response == 410:
+                    return f"The requested resource is no longer available on the server"
                 else: 
                     return f"Irresponsive URL!"
             except:
-                return f"Irresponsive URL!"
+                return f"Failed to load the url, check your internet connection"
 
         report = {
             'domain_status' :  get_domain(url),
@@ -405,7 +416,7 @@ class FeatureExtractor:
                 hostname = self._extract_hostname(url)
                 print(hostname)
                 context = ssl.create_default_context()
-                with socket.create_connection((hostname, 443), timeout=3) as sock:
+                with socket.create_connection((hostname, 443), timeout=5) as sock:
                     with context.wrap_socket(sock, server_hostname=hostname) as ssock:
                         cert = ssock.getpeercert()
                         cert_expiry = cert['notAfter']
@@ -728,7 +739,7 @@ class FeatureExtractor:
             else:
                 url = self.url
             
-            response = requests.get(url, allow_redirects=True, timeout=3)
+            response = requests.get(url, allow_redirects=True, timeout=5)
             if response.status_code == 200:
                 num_redirects = len(response.history)
                 
