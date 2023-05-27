@@ -89,7 +89,7 @@ class FeatureExtractor:
 
         def get_response_status(url):
             try:    
-                response = requests.get(url, timeout= 5).status_code
+                response = requests.get(url, timeout= 10).status_code
                 if response == 200:
                     return 0
                 else: 
