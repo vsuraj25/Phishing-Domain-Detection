@@ -1,0 +1,350 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(120deg, #ffeb85, #fbc677, #ff4e50);
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: "Segoe UI";
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.navbar {
+  background-color: #000;
+  padding-right: 40px;
+  padding-left: 40px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+ul li {
+  margin-left: 20px;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.section2 {
+  font-family: "Segoe UI";
+  margin-bottom: 40px;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  border-radius: 50px;
+  height: 300px;
+  margin-bottom: 40px;
+}
+
+.form-control {
+  width: 800px;
+  height: 40px;
+  font-size: 18px;
+  border: 2px solid #000;
+  text-align: center;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  align-content: center;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #ff69b4;
+}
+
+button {
+  width: 100px;
+  height: 40px;
+  font-size: 18px;
+  background-color: rgba(245, 245, 245, 0.993);
+  border: 2px solid #000;
+  border-radius: 20px;
+  color: #000;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #fff;
+  border-color: #ff69b4;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.section1 {
+  margin: 0 100px 40px; /* Updated margins */
+  font-size: 20px;
+  line-height: 1.5;
+  font-family: "Segoe UI";
+}
+
+.section1.small {
+  font-family: "Segoe UI";
+  margin: 0 100px 40px; /* Updated margins */
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.brand {
+  text-transform: uppercase;
+  color: #fff;
+  align-self: center;
+}
+
+footer {
+  background-color: #000;
+  padding: 20px;
+  color: #fff;
+}
+
+.container-fluid {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 40px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.container-fluid img {
+  border-radius: 20px; /* Adjust the border-radius as desired */
+  width: 60%; /* Adjust the width to make the image larger */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 40px;
+}
+
+.container-fluid .section2 {
+  font-family: "Segoe UI";
+  margin: 0 80px 40px; /* Updated margins */
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+hr {
+  border: none;
+  height: 2px;
+  background-color: #4a4545;
+  margin: 40px 30px;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 10px 10px;
+  text-decoration: none;
+  display: block;
+  font-size: medium;
+}
+
+.dropdown-content a:hover {
+  background-color: #e3ff42;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  width: 40px; /* Adjust the width as per your image dimensions */
+  height: 40px; /* Adjust the height as per your image dimensions */
+  margin: 20px 20px 20px;
+}
+
+.brand-name {
+  text-decoration: none;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+/* second page */
+.container-second1 {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.container-fluid2 {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+.left-container {
+  flex: 0 0 35%;
+  background-color: #ffa2a2;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 20px 20px 20px;
+}
+.right-container {
+  background-color: #ffa2a2;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 20px 20px;
+  align-content: center;
+}
+.sample-paragraph {
+  font-family: "Segoe UI";
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  /* Styles for devices with maximum width of 768px */
+
+  .navbar .brand,
+  .navbar ul {
+    margin-bottom: 10px;
+  }
+
+  .navbar .brand {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar .brand-name {
+    margin-left: 10px;
+  }
+
+  .navbar .dropdown {
+    display: block;
+  }
+
+  .navbar .dropdown-content a {
+    display: block;
+    margin-top: 5px;
+  }
+}
+
+/* Additional styles for better mobile experience */
+@media (max-width: 480px) {
+  /* Styles for devices with maximum width of 480px */
+  .navbar {
+    padding-left: 0%;
+    padding-right: 10px;
+  }
+  .navbar a {
+    font-size: 14px;
+  }
+  a .dropbtn {
+    font-size: 12px;
+  }
+  ul li {
+    margin-left: 5px;
+  }
+  .logo-img {
+    width: 30px;
+    height: 30px;
+    margin: 20px 0px 20px 10px;
+  }
+  .brand-name {
+    margin-right: 10px;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  .section2 {
+    font-size: 18px;
+  }
+  .form-control {
+    width: 300px;
+    height: 40px;
+    font-size: 14px;
+  }
+  button {
+    width: 80px;
+    height: 30px;
+    font-size: 16px;
+  }
+  img {
+    height: 200px;
+  }
+  .section1 {
+    margin: 0 10px 0px;
+    font-size: 14px;
+  }
+  .container-fluid .section2 {
+    margin: 0%;
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
+  .container-fluid img {
+    margin-bottom: 0;
+  }
+  .container-fluid2 {
+    display: block;
+  }
+}
