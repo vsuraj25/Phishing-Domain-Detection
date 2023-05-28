@@ -15,6 +15,7 @@ urllib3
 requests
 beautifulsoup4
 tld
+python-dotenv
 python-box==6.0.2
 
 -e .
